@@ -1,0 +1,24 @@
+{
+  "name": "jquery-js-webdev",
+  "version": "1.0.0",
+  "description": "An interactive webpage utilizing jQuery and JS.",
+  "main": "index.html",
+  "dependencies": {
+    "browser-sync": "^2.26.14",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TShields21/jQuery-js-webdev.git"
+  },
+  "author": "Tiffany Shields",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TShields21/jQuery-js-webdev/issues"
+  },
+  "homepage": "https://github.com/TShields21/jQuery-js-webdev#readme"
+}
