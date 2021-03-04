@@ -1,6 +1,6 @@
 import {characterData} from "./character.js";
 
-
+// Populates the html needed for the 'sidebar' area with the character's stats
 const renderStatsSidebar = function(character) {
 
   return `
@@ -17,7 +17,6 @@ const renderStatsSidebar = function(character) {
         </div>
         `; 
 };
-
 
 const loadStatsIntoDOM = function(character) {
     const $side = $('.side');

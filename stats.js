@@ -1,3 +1,3 @@
-export function editStats() {
+function editStats() {
  return;
 }
