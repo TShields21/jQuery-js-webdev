@@ -1,29 +1,33 @@
+import {characterData} from "./character.js";
 
-export const renderStatsSidebar = function(character) {
-    // TODO: Generate HTML elements to represent the info
 
-  return `<div class="box">
-    <h2>Name: ${character.name}</h2>
-    </div>
-    <div class="box">
-    <h2>Health: ${character.health}</h2>
-    </div>
-    <div class="box">
-    <h2>Stress: ${character.stress}</h2>
-    </div>`;
+const renderStatsSidebar = function(character) {
+
+  return `
+        <div class="box">
+            <h2>Money: $${character.money}</h2>
+        </div>
+        <div class="box">
+            <h2>Health: ${character.health}</h2>
+        </div>
+        <div class="box">
+            <h2>Stress: ${character.stress}</h2>
+        </div>
+        <div class="character">
+        </div>
+        `; 
 };
 
 
-export const loadStatsIntoDOM = function(character) {
+const loadStatsIntoDOM = function(character) {
     const $side = $('.side');
-
-    // GENERATE INFO 
-   var name =  renderStatsSidebar(character);
-    // APPEND INFO TO $var
-    $side.append(name);
+    var bar =  renderStatsSidebar(character);
+    $side.append(bar); 
 };
 
 $(function() {
     loadStatsIntoDOM(characterData);
 });
+
+
 
