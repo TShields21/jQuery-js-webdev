@@ -16,3 +16,9 @@ The file that updates the fields in characters.js based on the client-side actio
 
 styles.css
 CSS for the webpage.
+
+--- CONTRIBUTORS NOTE --
+Github Desktop was associated with the incorrect email address- all of the commits have been made by the TShields21 account, instead of the TTay21 account.
+
+-- IMAGES COPYRIGHT NOTE --
+All images come from this creator, who developed a thread for free images that people can use: https://lemmasoft.renai.us/forums/viewtopic.php?f=52&t=17302
