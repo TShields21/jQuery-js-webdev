@@ -25,17 +25,46 @@ const renderMainArea = function(scene) {
 
     // return html here that renders the page with the img & text areas from the scenes.js
     return `
-    <img src="${scene.img}">
-    ${scene.content}
+        <img src="${scene.img}">
+        <div data-id=${scene.id}>${scene.content}</div>
+
     `
 };
 
-const renderTextBox = function(sceneText) {
+const renderTextBox = function(scene) {
 
-
-    return `<p>${sceneText}</p>`
+return `<div class="textbox">
+            <a class="text" data-id="${scene.id}">
+                <p>${scene.textbox}</p>
+            </a> 
+            <div class="buttonContainer">
+                <a class="save" href="save.html">Save</a>
+                <a class="menu" href="menu.html">Menu</a>
+            </div>
+        </div>`
 
 };
+
+const handleTextPress = function(event) {
+    let sceneId = event.target.getAttribute("data-id");
+    sceneId++;
+    let scene = [];
+    scenes.forEach(el => {
+        if (el.id == sceneId) {
+            scene.push(el);
+        }
+    });
+    const $main = $('.main');
+    $main.empty();
+
+    const mainContent = renderMainArea(scene[0]);
+    $main.append(mainContent);
+
+    const text = renderTextBox(scene[0]);
+    $main.append(text);
+
+
+}
 
 
 // implement listener for when the save button is pressed to change the content of the main area
@@ -52,40 +81,36 @@ const handleCancelButton = function(event) {
 };
 
 
-const loadStatsIntoDOM = function(character) {
+const loadStatsIntoDOM = function(character, scenes) {
     const $side = $('.side');
     var bar =  renderStatsSidebar(character);
     $side.append(bar); 
 
+    const $root = $('#root');
+
+    const $main = $('.main');
+    const main = renderMainArea(scenes[0]);
+    const text = renderTextBox(scenes[0]);
+    $main.append(main);
+    $main.append(text);
+    
+    $root.on("click", ".textbox", handleTextPress);
+
+
     // Listener for the save button
-    const $root = $('.container');
     $root.on("click", ".save", handleSaveButton);
 
     // Listener for the cancel button
     $root.on("click", ".cancel", handleCancelButton);
     
-    const $main = $('.main');
-    const $textarea = $('.text');
-    const $textbox = $('.textbox');
 
-    scenes.forEach(scene => {
-        $main.append(renderMainArea(scene));
-        // Renders the text for every scene, proceeding through dialogue whenever the textbox is clicked
-        scene.textbox.forEach(text => {
-            $textarea.append(renderTextBox(text));
-            // WRITE CODE FOR THE LOOP TO WAIT FOR THIS FUNCTION BEFORE IT CONTINUES
-                $textarea.on("click", function() {
-                    $textarea.empty();
-                })
+    
 
-
-        });
-    });
 
 };
 
 $(function() {
-    loadStatsIntoDOM(characterData);
+    loadStatsIntoDOM(characterData, scenes);
 });
 
 
